@@ -443,7 +443,7 @@ def analysis_tab():
                 image_array = np.array(image)
                 file_bytes = uploaded_file.getvalue()
                 
-                st.image(image_array, caption="Uploaded X-Ray Image", use_container_width=True)
+                st.image(image_array, caption="Uploaded X-Ray Image", use_column_width=True)
                 
                 # Enhanced Image info with metrics
                 col_a, col_b = st.columns(2)
@@ -457,7 +457,7 @@ def analysis_tab():
                 # Analysis button with enhanced description
                 st.markdown("#### 🔬 Ready to Analyze")
                 st.caption("Click below to start AI-powered analysis with Grad-CAM++ explainability")
-                if st.button("🔍 Analyze X-Ray", type="primary", use_container_width=True):
+                if st.button("🔍 Analyze X-Ray", type="primary"):
                     with st.spinner("🔄 Processing... Applying CLAHE enhancement and running deep learning inference..."):
                         analyze_image(file_bytes, image, col2)  # Pass raw bytes for preprocessing, PIL for display
                         
@@ -561,7 +561,6 @@ def analyze_image(file_bytes: bytes, pil_image: Image.Image, display_column):
             # Display as styled table
             st.dataframe(
                 confidence_df,
-                use_container_width=True,
                 hide_index=True,
                 column_config={
                     "Rank": st.column_config.NumberColumn("Rank", width="small"),
@@ -595,10 +594,10 @@ def analyze_image(file_bytes: bytes, pil_image: Image.Image, display_column):
                     col_a, col_b = st.columns(2)
                     
                     with col_a:
-                        st.image(original_display, caption="Enhanced Image", use_container_width=True)
+                        st.image(original_display, caption="Enhanced Image", use_column_width=True)
                     
                     with col_b:
-                        st.image(overlay, caption="Grad-CAM++ Heatmap", use_container_width=True)
+                        st.image(overlay, caption="Grad-CAM++ Heatmap", use_column_width=True)
                     
                     # Interpretation
                     with st.expander("ℹ️ Understanding Grad-CAM++ Visualization"):
@@ -729,7 +728,6 @@ def model_details_and_performance_tab():
     # Style the dataframe
     st.dataframe(
         df,
-        use_container_width=True,
         hide_index=True,
         column_config={
             "Disease": st.column_config.TextColumn("Disease", width="medium"),
