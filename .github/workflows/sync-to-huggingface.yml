@@ -1,0 +1,48 @@
+name: Sync to Hugging Face Spaces
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:  # Allows manual trigger from Actions tab
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Fetch all history for proper syncing
+          lfs: true       # Enable Git LFS support
+      
+      - name: Setup Git LFS
+        run: |
+          git lfs install
+      
+      - name: Push to Hugging Face Space
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "GitHub Actions"
+          
+          # Add Hugging Face remote
+          git remote add hf https://jinsze:$HF_TOKEN@huggingface.co/spaces/jinsze/CXR-Assistant || true
+          
+          # Push to Hugging Face
+          git push hf main --force
+      
+      - name: Notify on success
+        if: success()
+        run: |
+          echo "✅ Successfully synced to Hugging Face Spaces!"
+          echo "🔗 Check your Space at: https://huggingface.co/spaces/jinsze/CXR-Assistant"
+      
+      - name: Notify on failure
+        if: failure()
+        run: |
+          echo "❌ Failed to sync to Hugging Face Spaces"
+          echo "Check the logs above for details"
+
