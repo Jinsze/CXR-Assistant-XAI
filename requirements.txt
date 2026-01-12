@@ -2,9 +2,11 @@
 streamlit>=1.28.0
 tensorflow>=2.13.0
 numpy>=1.24.0
-opencv-python>=4.8.0
+opencv-python-headless>=4.8.0
 pillow>=10.0.0
 matplotlib>=3.7.0
+pandas>=2.0.0
+protobuf>=3.20.0,<5.0.0
 
 # Optional: For enhanced performance (if available)
 # tensorflow-gpu>=2.13.0  # Uncomment for GPU support
