@@ -12,8 +12,9 @@ import tensorflow as tf
 from .preprocessing import preprocess_for_inference
 
 # Model configuration
-# Point to the actual trained model from Colab
-MODEL_PATH = r"C:\Users\asusv\OneDrive\Documents\DSP\ChestXrayProject\models\colab_clahe_eff_final.keras"
+# Use relative path for deployment compatibility (works on both Windows and Linux)
+# __file__ is utils/predict.py, so we go up two levels to get to lung_disease_ai/
+MODEL_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "models", "colab_clahe_eff_final.keras")
 
 class LungDiseaseClassifier:
     """
