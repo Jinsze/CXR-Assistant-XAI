@@ -1,4 +1,15 @@
-# 🫁 Lung Disease Classification AI System
+---
+title: Chest X-ray Assist Explainable AI
+emoji: 🫁
+colorFrom: blue
+colorTo: green
+sdk: streamlit
+sdk_version: "1.32.0"
+app_file: app.py
+pinned: false
+---
+
+# 🫁 Chest X-ray Assist: Explainable AI
 
 An AI-powered web application for automated lung disease classification from chest X-ray images using deep learning and explainable AI techniques.
 
