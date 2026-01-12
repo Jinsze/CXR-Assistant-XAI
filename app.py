@@ -682,10 +682,10 @@ def model_details_and_performance_tab():
         <div class="metric-card">
         <h3>🎯 Classification Classes</h3>
         <ol>
-            <li><strong>COVID-19:</strong> Viral pneumonia patterns</li>
-            <li><strong>Normal:</strong> Healthy lung tissue</li>
-            <li><strong>Pneumonia:</strong> Bacterial lung infection</li>
-            <li><strong>Tuberculosis:</strong> TB infection patterns</li>
+            <li><strong>COVID-19:</strong> Bilateral peripheral ground-glass opacities and patchy consolidations</li>
+            <li><strong>Normal:</strong> Clear lung fields with no focal opacities or abnormalities</li>
+            <li><strong>Viral Pneumonia:</strong> Diffuse or perihilar interstitial infiltrates and mild consolidations</li>
+            <li><strong>Tuberculosis:</strong> Upper lobe infiltrates, cavitary lesions, and fibrotic changes</li>
         </ol>
         </div>
         """, unsafe_allow_html=True)
@@ -769,7 +769,7 @@ def model_details_and_performance_tab():
             <li><strong>Pneumonia:</strong> 98% recall (excellent detection)</li>
         </ul>
         <p style="color: #16a34a; font-weight: bold; margin-top: 1rem;">
-        ✅ Model shows excellent performance across all disease categories
+         Model shows excellent performance across all disease categories
         </p>
         </div>
         """, unsafe_allow_html=True)
@@ -800,12 +800,12 @@ def model_details_and_performance_tab():
     <div class="metric-card">
     <strong>Dataset Split:</strong>
     <ul>
-        <li>Training Set: ~70% of total data with augmentation</li>
-        <li>Validation Set: ~15% for hyperparameter tuning</li>
+        <li>Training Set: ~70% of the data per class with data augmentation</li>
+        <li>Validation Set: ~15% used for model selection and early stopping</li>
         <li>Test Set: ~15% (2,716 samples) for final evaluation</li>
     </ul>
     
-    <strong>Cross-Validation:</strong> Stratified K-Fold to ensure balanced class representation
+    <strong>Cross-Validation:</strong> Class-wise random split to maintain proportional class distribution.
     
     <strong>Data Augmentation:</strong> Rotation (±15°), shifts, zoom, horizontal flip, brightness adjustment
     </div>
@@ -822,10 +822,10 @@ def user_manual_tab():
     
     <h4>Step 1: Prepare Your Image</h4>
     <ul>
-        <li>✅ Use frontal chest X-ray images (PA or AP view)</li>
-        <li>✅ Supported formats: JPG, JPEG, PNG</li>
-        <li>✅ Image can be any size (will be resized automatically)</li>
-        <li>✅ Both grayscale and color images are supported</li>
+        <li> Use frontal chest X-ray images (PA or AP view)</li>
+        <li> Supported formats: JPG, JPEG, PNG</li>
+        <li> Image can be any size (will be resized automatically)</li>
+        <li> Both grayscale and color images are supported</li>
     </ul>
     
     <h4>Step 2: Upload and Analyze</h4>
@@ -862,11 +862,11 @@ def user_manual_tab():
     
     <h4>Clinical Usage:</h4>
     <ul>
-        <li>❌ DO NOT use for final clinical diagnosis</li>
-        <li>✅ Use as a preliminary screening tool</li>
-        <li>✅ Always confirm with qualified radiologists</li>
-        <li>✅ Consider in context of patient history and symptoms</li>
-        <li>✅ Follow standard medical protocols</li>
+        <li> DO NOT use for final clinical diagnosis</li>
+        <li> Use as a preliminary screening tool</li>
+        <li> Always confirm with qualified radiologists</li>
+        <li> Consider in context of patient history and symptoms</li>
+        <li> Follow standard medical protocols</li>
     </ul>
     
     <h4>Understanding Confidence Scores:</h4>
