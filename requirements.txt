@@ -3,7 +3,9 @@ streamlit>=1.28.0
 tensorflow>=2.13.0
 numpy>=1.24.0
 opencv-python-headless>=4.8.0
-pillow==12.2.0
+# Use a Pillow <11 to satisfy streamlit==1.32.0's dependency
+# and avoid the resolver conflict in the Spaces build environment.
+pillow==10.4.0
 matplotlib>=3.7.0
 pandas>=2.0.0
 protobuf>=3.20.0,<5.0.0
