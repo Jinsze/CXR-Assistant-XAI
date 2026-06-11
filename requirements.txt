@@ -1,7 +1,7 @@
 # Core dependencies for lung disease classification AI system
-streamlit>=1.28.0
-# Pin TensorFlow to 2.13.0 to keep protobuf <5 compatibility with Streamlit
-tensorflow==2.13.0
+streamlit==1.32.0
+# Use a TensorFlow version compatible with Spaces Python 3.13 runtime
+tensorflow==2.21.0
 numpy>=1.24.0
 opencv-python-headless>=4.8.0
 # Use a Pillow <11 to satisfy streamlit==1.32.0's dependency
