@@ -6,6 +6,14 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     curl \
     git \
+    libjpeg-dev \
+    zlib1g-dev \
+    libpng-dev \
+    libtiff-dev \
+    libfreetype6-dev \
+    liblcms2-dev \
+    libwebp-dev \
+    libopenjp2-7-dev \
     && rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt ./
